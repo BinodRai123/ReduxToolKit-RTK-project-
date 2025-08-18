@@ -3,7 +3,7 @@ import Navbar from "./components/navbar";
 
 const App = () => {
   return (
-    <div className="h-screen bg-blue-900">
+    <div className="h-screen bg-zinc-800">
       <Navbar />
       <MainRoute />
     </div>
