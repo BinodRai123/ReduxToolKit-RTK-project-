@@ -2,30 +2,17 @@ import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 
 const Login = () => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
-
-  const handleFormData = () => {
-    reset();
-  };
+  const { register, handleSubmit, reset } = useForm();
+  const loginForm = () => {
+    
+  }
 
   return (
     <>
       <form
         className="flex flex-col gap-8 mt-16 items-center"
-        onSubmit={handleSubmit(handleFormData)}
+        onSubmit={handleSubmit(loginForm)}
       >
-        <input
-          {...register("name")}
-          className="text-xl font-thin login-form"
-          type="text"
-          placeholder="Enter your Name"
-          required
-        />
         <input
           {...register("email")}
           className="text-xl font-thin login-form"
@@ -42,15 +29,14 @@ const Login = () => {
           required
         />
 
-        <input className="button" type="submit" value={"Register User"} />
+        <input className="button" type="submit" value={"Log in"} />
 
         <small className="text-white text-xl font-thin">
-          Already have an account:{" "}
-          <NavLink className="text-blue-800 font-bold" to="/">
-            Login
+          Don't have an account:{" "}
+          <NavLink className="text-blue-800 font-bold" to="/register">
+            Register
           </NavLink>
         </small>
-
       </form>
     </>
   );

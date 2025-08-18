@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import Home from "../pages/home"
 import About from "../pages/about"
 import Prodcut from "../pages/prodcut"
+import Register from "../pages/register"
 import Login from "../pages/login"
 
 const MainRoute = () => {
@@ -10,7 +11,8 @@ const MainRoute = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<Prodcut />} />
-        <Route path="/Login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
     </Routes>
   </>
 }
