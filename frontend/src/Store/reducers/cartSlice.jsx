@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 //----> Store Data and Manipulated Syncronously
 
 const initialState = {
-  carts: [],
+  carts: "",
 };
 
 const cartSlice = createSlice({

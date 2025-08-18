@@ -1,11 +1,14 @@
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { asyncLoginUser } from "../Store/Action/userAction";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const { register, handleSubmit, reset } = useForm();
-  const loginForm = () => {
-    
-  }
+  const loginForm = (user) => {
+    dispatch(asyncLoginUser(user));
+  };
 
   return (
     <>

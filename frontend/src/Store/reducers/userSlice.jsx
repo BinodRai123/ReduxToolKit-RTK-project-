@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 //----> Store Data and Manipulated Syncronously
 
 const initialState = {
-  users: [],
+  users: "",
 };
 
 const userSlice = createSlice({
@@ -10,7 +10,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     //---> Action Function
-    loadCart: (state, action) => {
+    loadUser: (state, action) => {
       state.users = action.payload; 
     },
   },
@@ -18,4 +18,4 @@ const userSlice = createSlice({
 
 export default userSlice.reducer; // pass to the store.jsx
 
-export const { loadCart } = userSlice.actions;
+export const { loadUser } = userSlice.actions;
