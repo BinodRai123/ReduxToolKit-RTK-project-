@@ -33,10 +33,9 @@ export const asyncLoginUser = (user) => async (dispatch, getState) => {
 
 export const asyncRegisterUser = (user) => async (dispatch, getState) => {
   try {
-    const res = await axios.post("/users", user);
-    toast.success("sucessfully register");
+    await axios.post("/users", user);
+    localStorage.setItem("user", JSON.stringify(user));
   } catch (error) {
-    console.log(error);
     toast.error(error.message);
   }
-};
+}
