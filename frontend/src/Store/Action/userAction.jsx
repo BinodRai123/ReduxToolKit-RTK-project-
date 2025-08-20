@@ -1,11 +1,11 @@
 import axios from "../../utils/axios";
 import { toast } from "react-toastify";
-import { loadUser, removeUser } from "../reducers/userSlice"
+import { loadUser, removeUser } from "../reducers/userSlice";
 
 export const asyncCurrentUser = () => async (dispatch, getState) => {
   try {
     const user = JSON.parse(localStorage.getItem("user"));
-    if(user) dispatch(loadUser(user));
+    if (user) dispatch(loadUser(user));
   } catch (error) {
     toast.error(error);
   }
@@ -25,7 +25,7 @@ export const asyncLoginUser = (user) => async (dispatch, getState) => {
     const { data } = await axios.get(
       `/users?email=${user.email}&password=${user.password}`
     );
-    localStorage.setItem("user",JSON.stringify(data[0]));
+    localStorage.setItem("user", JSON.stringify(data[0]));
   } catch (error) {
     toast.error(error);
   }
@@ -37,13 +37,13 @@ export const asyncRegisterUser = (user) => async (dispatch, getState) => {
   } catch (error) {
     toast.error(error.message);
   }
-}
+};
 
-export const asyncUpdateUser = (id, user) => async (dispatch, getState) => {
+export const asyncUpdateUser = (user) => async (dispatch, getState) => {
   try {
-     await axios.patch("/users" + id, user);
-    // dispatch(loadUser(user));
+    await axios.patch("/users/" + user.id, user);
+    dispatch(loadUser(user));
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
