@@ -9,7 +9,7 @@ const Login = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const loginForm = (user) => {
-    dispatch(asyncLoginUser(user));
+    dispatch(asyncLoginUser(user.id, user));
     navigate("/");
   };
 

@@ -1,24 +1,23 @@
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
+import { asyncUpdateUser } from "../Store/Action/userAction";
 
 const Setting = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-  } = useForm({
-    // defaultValues: {
+  const user = useSelector((state) => state.userReducer.users);
 
-    // }
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+        name: user.name,
+        email: user.email,
+        password: user.password
+    },
   });
 
   const handleFormData = (user) => {
-    user.id = nanoid();
-    user.isAdmin = false;
-    dispatch(asyncRegisterUser(user));
-    navigate("/login");
+    dispatch(asyncUpdateUser(user))
   };
 
   return (
@@ -51,7 +50,9 @@ const Setting = () => {
 
       <input className="button" type="submit" value={"Update"} />
 
-        <button className="button" type="button">Log Out</button>
+      <button className="button" type="button">
+        Log Out
+      </button>
     </form>
   );
 };

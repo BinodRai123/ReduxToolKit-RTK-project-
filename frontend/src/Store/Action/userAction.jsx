@@ -38,3 +38,12 @@ export const asyncRegisterUser = (user) => async (dispatch, getState) => {
     toast.error(error.message);
   }
 }
+
+export const asyncUpdateUser = (id, user) => async (dispatch, getState) => {
+  try {
+     await axios.patch("/users" + id, user);
+    // dispatch(loadUser(user));
+  } catch (error) {
+    console.log(error)
+  }
+}
