@@ -2,13 +2,10 @@
   "users": [
     {
       "id": "1",
-      "title": "a title",
-      "views": 100
-    },
-    {
-      "id": "2",
-      "title": "another title",
-      "views": 200
+      "name": "binodmaster",
+      "email": "master@gmail.com",
+      "password": "0000",
+      "isAdmin": true
     },
     {
       "id": "2CGO6ryYoO3fszeguikXA",

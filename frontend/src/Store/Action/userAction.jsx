@@ -25,6 +25,7 @@ export const asyncLoginUser = (user) => async (dispatch, getState) => {
     const { data } = await axios.get(
       `/users?email=${user.email}&password=${user.password}`
     );
+    console.log(data)
     localStorage.setItem("user",JSON.stringify(data[0]));
   } catch (error) {
     toast.error(error);
@@ -34,7 +35,6 @@ export const asyncLoginUser = (user) => async (dispatch, getState) => {
 export const asyncRegisterUser = (user) => async (dispatch, getState) => {
   try {
     await axios.post("/users", user);
-    localStorage.setItem("user", JSON.stringify(user));
   } catch (error) {
     toast.error(error.message);
   }
