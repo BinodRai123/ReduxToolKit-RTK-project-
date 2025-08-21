@@ -10,10 +10,10 @@ const Setting = () => {
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      password: user.password,
+      id: user?.id,
+      name: user?.name,
+      email: user?.email,
+      password: user?.password,
     },
   });
 
@@ -24,6 +24,7 @@ const Setting = () => {
 
   const logoutUserHandler = () => {
     dispatch(asyncLogoutUser());
+    navigate("/")
   }
 
   return (

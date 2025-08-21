@@ -13,6 +13,13 @@
       "email": "br163406@gmail.com",
       "password": "adfadfadsfa",
       "isAdmin": false
+    },
+    {
+      "id": "84orl-Oy1Tsz_jc9hrxUB",
+      "name": "binodmaster",
+      "email": "master@gmail.com",
+      "password": "0000",
+      "isAdmin": false
     }
   ],
   "product": [

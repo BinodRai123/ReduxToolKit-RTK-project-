@@ -14,7 +14,7 @@ const Navbar = () => {
           <NavLink className={e => e.isActive ? "border-b" : ""} to="/register" >Sign-In</NavLink>
         </>}
 
-        <NavLink className={e => e.isActive ? "border-b": ""} to="/setting">Setting</NavLink>
+        {user ? <NavLink className={e => e.isActive ? "border-b": ""} to="/setting">Setting</NavLink> : <></>}
     </nav>
   </>
 }
