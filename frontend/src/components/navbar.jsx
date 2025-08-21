@@ -5,7 +5,7 @@ const Navbar = () => {
     const user = useSelector((state) => state.userReducer.users);
 
   return <>
-    <nav className="flex p-5 text-2xl gap-16 font-thin justify-center text-white">
+    <nav className="flex sticky top-0 p-5 text-2xl gap-16 font-thin justify-center text-white">
         <NavLink className={e => e.isActive ? "border-b" : ""} to="/" >Home</NavLink>
 
         {user ? <>
