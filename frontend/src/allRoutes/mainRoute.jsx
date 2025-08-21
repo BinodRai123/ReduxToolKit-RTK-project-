@@ -1,10 +1,14 @@
+import { lazy } from "react";
 import { Route, Routes } from "react-router-dom"
-import Home from "../pages/home"
-import About from "../pages/about"
-import Prodcut from "../pages/prodcut"
-import Register from "../pages/register"
-import Login from "../pages/login"
-import Setting from "../pages/setting"
+
+
+const Setting = lazy(() => import("../pages/setting")) 
+const Login = lazy(() => import("../pages/login")) 
+const Register = lazy(() => import("../pages/register")) 
+const Prodcut = lazy(() => import("../pages/prodcut")) 
+const About = lazy(() => import("../pages/about")) 
+const Home = lazy(() => import("../pages/home")) 
+
 
 const MainRoute = () => {
   return <>
