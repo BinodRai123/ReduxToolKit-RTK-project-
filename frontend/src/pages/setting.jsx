@@ -19,7 +19,6 @@ const Setting = () => {
 
   const handleFormData = (user) => {
     dispatch(asyncUpdateUser());
-    navigate("/");
   };
 
   const logoutUserHandler = () => {

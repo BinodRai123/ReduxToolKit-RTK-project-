@@ -1,5 +1,7 @@
 import { lazy } from "react";
 import { Route, Routes } from "react-router-dom"
+import AuthWrapper from "./authWrapper";
+import PageNotFound from "../pages/pageNotFound";
 
 
 const Setting = lazy(() => import("../pages/setting")) 
@@ -13,12 +15,14 @@ const Home = lazy(() => import("../pages/home"))
 const MainRoute = () => {
   return <>
     <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/product" element={<Prodcut />} />
+        <Route path="/" element={<Home /> } />
+        <Route path="/about" element={<AuthWrapper><About /></AuthWrapper>} />
+        <Route path="/product" element={<AuthWrapper><Prodcut /></AuthWrapper>} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/setting" element={<Setting />} />
+        <Route path="/setting" element={<AuthWrapper><Setting /></AuthWrapper>} />
+
+        <Route path="*" element={<PageNotFound />} />
     </Routes>
   </>
 }
