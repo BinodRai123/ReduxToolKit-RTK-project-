@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
-import { asyncUpdateUser } from "../Store/Action/userAction";
+import { asyncLogoutUser, asyncUpdateUser } from "../Store/Action/userAction";
 
 const Setting = () => {
   const dispatch = useDispatch();
@@ -18,8 +18,13 @@ const Setting = () => {
   });
 
   const handleFormData = (user) => {
-    dispatch(asyncUpdateUser(user));
+    dispatch(asyncUpdateUser());
+    navigate("/");
   };
+
+  const logoutUserHandler = () => {
+    dispatch(asyncLogoutUser());
+  }
 
   return (
     <form
@@ -51,7 +56,7 @@ const Setting = () => {
 
       <input className="button" type="submit" value={"Update"} />
 
-      <button className="button" type="button">
+      <button className="button" type="button" onClick={logoutUserHandler} >
         Log Out
       </button>
     </form>
